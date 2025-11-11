@@ -1,15 +1,18 @@
-import fs from "fs/promises";
-import path from "path";
+import * as fs from "node:fs/promises";
+import * as path from "node:path";
 
 // contacts.js
-const contactsPath = path.join(__dirname, "contacts.js");
+const contactsPath = path.resolve("db", "contacts.json");
 
 export async function listContacts() {
-  // ...твій код. Повертає масив контактів.
+  const res = await fs.readFile(contactsPath, "utf-8");
+  return JSON.parse(res);
 }
 
 export async function getContactById(contactId) {
-  // ...твій код. Повертає об'єкт контакту з таким id. Повертає null, якщо контакт з таким id не знайдений.
+  const res = await listContacts();
+  const res1 = res.find((item) => item.id === contactId);
+  return res1 ?? null;
 }
 
 export async function removeContact(contactId) {
