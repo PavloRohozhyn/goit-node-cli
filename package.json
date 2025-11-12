@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "node console aplication",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
@@ -19,7 +20,8 @@
   },
   "homepage": "https://github.com/PavloRohozhyn/goit-node-cli#readme",
   "dependencies": {
-    "commander": "^14.0.2"
+    "commander": "^14.0.2",
+    "nanoid": "^5.1.6"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
